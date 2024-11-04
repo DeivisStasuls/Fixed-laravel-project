@@ -29,7 +29,7 @@
         <div class="mb-3">
             <label for="descriptionInput" class="form-label">Apraksts</label>
             <input type="text" class="form-control" id="descriptionInput" name="description" value="{{ $product->description }}">
-        </div>
+        </div> 
         <div class="mb-3">
             <input type="submit" class="btn btn-primary" value="Atjaunot">
         </div>

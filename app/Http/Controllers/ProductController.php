@@ -18,8 +18,13 @@ class ProductController extends Controller
 
     public function store (Request $request){
         $data = $this->validateProduct($request);
+
         $newProduct = Product::create($data);
         return redirect(route('products.index'))->with('success', __('products.message_create_success'));
+    }
+    public function show($id){
+        $product = Product::find($id);
+        return view("products.view", ['product'=>$product]);
     }
 
     public function edit(Product $product){
@@ -28,6 +33,7 @@ class ProductController extends Controller
 
     public function update(Product $product, Request $request){
         $data = $this->validateProduct($request);
+        $product->update($data); 
         return redirect(route('products.index'))->with('success', __('products.message_update_success'));
     }
 
